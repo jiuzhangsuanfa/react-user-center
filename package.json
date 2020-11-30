@@ -19,7 +19,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "BROWSER=none react-app-rewired start",
     "build": "bash script/build.sh",
     "build:demo": "TARGET=DEMO npm run build",
     "push": "bash script/push.sh",
