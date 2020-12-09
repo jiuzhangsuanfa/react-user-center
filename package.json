@@ -1,5 +1,5 @@
 {
-  "name": "personal-app",
+  "name": "web-react-02-personal-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,15 +12,19 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.4",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-react-hook": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
+    "start": "BROWSER=none react-app-rewired start",
+    "build": "bash script/build.sh",
+    "build:demo": "TARGET=DEMO npm run build",
+    "push": "bash script/push.sh",
+    "pack": "npm run build && npm run push",
+    "pack:demo": "npm run build:demo && npm run push",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
