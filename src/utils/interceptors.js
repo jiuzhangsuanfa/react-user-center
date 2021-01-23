@@ -21,7 +21,7 @@ const requestInterceptors = [
   {
     name: 'addHttpRequestHeader',
     success(config) {
-      config.headers['Authorization'] = `Bearer ${window.localStorage.getItem('personal-app-token')}`;
+      config.headers['Authorization'] = `Bearer ${window.localStorage.getItem('user-center-token')}`;
       return config;
     },
     fail(err) {
