@@ -1,6 +1,6 @@
 # 个人中心 User Center
 
-[点击查看 Demo](https://demo.don.red/web-react-02-personal-app)，如果同学有新的 idea，可以提交 PR 哦~
+[点击查看 Demo](https://demo.don.red/user-center)，如果同学有新的 idea，可以提交 PR 哦~
 
 ## 如何使用
 

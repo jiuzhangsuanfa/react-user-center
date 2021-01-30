@@ -1,12 +1,12 @@
 #!/bin/bash
-if [ ! -n "$registry" ];
+if [ ! -n "$REG" ];
 then
-  registry='docker.io'
+  REG='docker.io'
 fi
 cd build
 tee > ./Dockerfile <<-'EOF'
 FROM iinfinity/nginx
 COPY ["./", "/app/"]
 EOF
-docker build -t $registry/$npm_package_name .
-docker push $registry/$npm_package_name
+docker build -t $REG/$PUBLIC_URL .
+docker push $REG/$PUBLIC_URL
