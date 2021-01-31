@@ -2,10 +2,7 @@ import { HOST } from '../constants';
 import ajax from '../utils/ajax';
 
 export function getCaptcha(params) {
-  return ajax.post(`${HOST}/user/getCaptcha`, {
-    data: params,
-    headers: { 'content-type': 'application/x-www-form-urlencoded' }
-  });
+  return ajax.post(`${HOST}/user/getCaptcha`, { data: params });
 }
 
 

@@ -1,13 +1,15 @@
 import { message } from 'antd';
-import * as api from '../api/account'
+import * as api from '../api/account';
+
+const base = `/${process.env.PUBLIC_URL ? process.env.PUBLIC_URL + '/' : ''}`;
 
 export function getCaptcha(payload = {}) {
   return async () => {
-    const { code, message: msg, data: { captcha } = {} } = await api.getCaptcha(payload);
+    const { code, message: content } = await api.getCaptcha(payload);
     if (code === 20020) {
-      message.success(`${msg}，验证码为${captcha}`);
+      await message.success(content);
     } else {
-      message.error(msg);
+      await message.error(content);
     }
   }
 }
@@ -16,9 +18,11 @@ export function register(payload = {}) {
   return async () => {
     const { code, message: msg } = await api.register(payload);
     if (code === 20023) {
-      message.success(msg);
+      await message.success(msg);
+      window.location.href = base;
     } else {
-      message.error(msg);
+      await message.error(msg);
+      throw new Error('register failed');
     }
   }
 }
@@ -28,11 +32,12 @@ export function login(payload = {}) {
   return async () => {
     const { code, message: msg, data: { token } = {} } = await api.login(payload);
     if (code === 0) {
-      message.success(msg);
+      await message.success(msg);
       window.localStorage.setItem('user-center-token', token);
-      window.location.href = "/";
+      window.location.href = base;
     } else {
-      message.error(msg);
+      await message.error(msg);
+      throw new Error('register failed');
     }
   }
 }

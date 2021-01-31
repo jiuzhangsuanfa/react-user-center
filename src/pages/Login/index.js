@@ -1,15 +1,19 @@
+import {
+  AlipayCircleOutlined,
+  LockTwoTone,
+  MailTwoTone,
+  MobileTwoTone,
+  TaobaoCircleOutlined,
+  UserOutlined,
+  WeiboCircleOutlined
+} from '@ant-design/icons';
+import { Checkbox, Form, Row, Tabs } from 'antd';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Tabs, Form, Checkbox, Row } from 'antd';
-import {
-  UserOutlined, LockTwoTone, MobileTwoTone,
-  MailTwoTone, AlipayCircleOutlined, TaobaoCircleOutlined,
-  WeiboCircleOutlined,
-} from '@ant-design/icons';
 import { useDispatch } from 'redux-react-hook';
+import { login } from '../../actions/account';
 import InputItem from '../../components/InputItem';
 import SubmitButton from '../../components/SubmitButton';
-import { login } from '../../actions/account';
 import styles from './index.module.less';
 
 const { TabPane } = Tabs;
@@ -21,7 +25,7 @@ const Login = () => {
   const handleFinish = (values) => {
     dispatch(login(values));
   }
-  
+
   return (
     <div className={styles.loginContainer}>
       <div className={styles.login}>
@@ -62,7 +66,7 @@ const Login = () => {
               />
             </TabPane>
             <TabPane tab="手机号登陆" key="2">
-            <InputItem
+              <InputItem
                 name="mobile"
                 prefix={
                   <MobileTwoTone />

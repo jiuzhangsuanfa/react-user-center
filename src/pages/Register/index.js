@@ -1,10 +1,10 @@
+import { Col, Form, Popover, Progress, Row, Select } from 'antd';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'redux-react-hook';
-import { Form, Popover, Progress, Select, Row, Col } from 'antd';
+import { getCaptcha, register } from '../../actions/account';
 import InputItem from '../../components/InputItem';
 import SubmitButton from '../../components/SubmitButton';
-import { getCaptcha, register } from '../../actions/account';
 import styles from './index.module.less';
 
 const { Option } = Select;
@@ -96,6 +96,7 @@ const Register = () => {
       .then(() => {
         dispatch(getCaptcha(form.getFieldsValue(['username', 'email', 'password'])))
       })
+      .catch(reason => console.error(reason));
   }
 
   return (
@@ -120,6 +121,7 @@ const Register = () => {
             name="email"
             placeholder="邮箱"
             size="large"
+            type="email"
             rules={[
               {
                 required: true,
@@ -197,6 +199,7 @@ const Register = () => {
                 name="mobile"
                 placeholder="手机号"
                 size="large"
+                type="number"
                 rules={[
                   {
                     required: true,
