@@ -5,7 +5,7 @@ import styles from './index.module.less';
 const InputItem = React.forwardRef((props, ref) => {
   const { name, rules, onClick, ...rest } = props;
   const [timing, setTiming] = useState(false); // 是否在倒计时
-  const [count, setCount] = useState(props.countDown || 10); //倒计时秒数
+  const [count, setCount] = useState(props.countDown || 60); //倒计时秒数
   const handleClickCaptcha = () => {
     onClick();
     setTiming(true);
